@@ -10,6 +10,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var customTextField1: UITextField!
+    @IBOutlet weak var customTextField2: UITextField!
+    @IBOutlet weak var customTextField3: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,10 +25,11 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func onTap(sender: AnyObject) {
+    
+    @IBAction func onTap(sender: UITapGestureRecognizer){
         view.endEditing(true)
     }
+    
 
     /*
     // MARK: - Navigation

@@ -142,16 +142,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UK5-MH-Bz8" appends="YES" id="PKt-mz-KAd"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="BVr-dB-qlK"/>
                     <connections>
-                        <outlet property="onTap" destination="pkI-sQ-LDk" id="kGz-UX-5WU"/>
+                        <outlet property="customTextField1" destination="dVe-jU-1wk" id="YGG-Eg-wDk"/>
+                        <outlet property="customTextField2" destination="Ew8-xv-OQa" id="vvk-15-Gpk"/>
+                        <outlet property="customTextField3" destination="qep-Lc-BZR" id="HIS-Y5-oEF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYV-9L-hr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="pkI-sQ-LDk">
+                <tapGestureRecognizer id="UK5-MH-Bz8">
                     <connections>
-                        <action selector="onTap:" destination="Jze-pf-78o" id="BHd-98-LCl"/>
+                        <action selector="onTap:" destination="Jze-pf-78o" id="KEa-Gh-2s7"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
