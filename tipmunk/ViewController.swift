@@ -18,14 +18,11 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("view will appear")
-        
         readFromUserDefaults()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        print("view did appear")
     }
     
     override func viewDidLoad() {
