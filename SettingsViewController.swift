@@ -35,42 +35,27 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func customText1Changed(sender: AnyObject) {
-        persistCurrentValue()
+        persistCurrentValue(customTextField1.text!, key: "custom_1")
     }
     
     @IBAction func customText2Changed(sender: AnyObject) {
-        persistCurrentValue()
+        persistCurrentValue(customTextField2.text!, key: "custom_2")
     }
     
     @IBAction func customText3Changed(sender: AnyObject) {
-        persistCurrentValue()
+        persistCurrentValue(customTextField3.text!, key: "custom_3")
     }
     
     
-    func persistCurrentValue() {
+    func persistCurrentValue(valueString: String, key: String) {
         let defaults = NSUserDefaults.standardUserDefaults()
-        print("onTap" + String(customTextField1.text))
-        let value1 = Int(customTextField1.text!) ?? 0
-        let value2 = Int(customTextField2.text!) ?? 0
-        let value3 = Int(customTextField3.text!) ?? 0
-        defaults.setInteger(value1, forKey: "custom_1")
-        defaults.setInteger(value2, forKey: "custom_2")
-        defaults.setInteger(value3, forKey: "custom_3")
-        print("value : " + String(value1))
+        let value = Int(valueString) ?? 0
+        defaults.setInteger(value, forKey: key)
         defaults.synchronize()
     }
     
 
     // Need a validation that input values are less than 100
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
