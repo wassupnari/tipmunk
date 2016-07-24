@@ -32,6 +32,8 @@ class ViewController: UIViewController {
     
     @IBAction func calculateTip(sender: AnyObject) {
         
+        readFromUserDefaults()
+        
         let tipPercentages = [0.18, 0.2, 0.25]
         
         // ?? : returns the right value if the left value is equal to nil
@@ -41,6 +43,18 @@ class ViewController: UIViewController {
         
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+    }
+    
+    func readFromUserDefaults() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        let value1 = defaults.integerForKey("custom_1") ?? 18
+        let value2 = defaults.integerForKey("custom_2") ?? 20
+        let value3 = defaults.integerForKey("custom_3") ?? 25
+        
+        tipControl.setTitle(String(value1) + "%", forSegmentAtIndex: 0)
+        tipControl.setTitle(String(value2) + "%", forSegmentAtIndex: 1)
+        tipControl.setTitle(String(value3) + "%", forSegmentAtIndex: 2)
     }
 }
 

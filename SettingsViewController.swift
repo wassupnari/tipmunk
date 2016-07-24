@@ -17,8 +17,12 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        customTextField1.text = String(defaults.integerForKey("custom_1") ?? 18)
+        customTextField2.text = String(defaults.integerForKey("custom_2") ?? 20)
+        customTextField3.text = String(defaults.integerForKey("custom_3") ?? 25)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +34,34 @@ class SettingsViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func customText1Changed(sender: AnyObject) {
+        persistCurrentValue()
+    }
+    
+    @IBAction func customText2Changed(sender: AnyObject) {
+        persistCurrentValue()
+    }
+    
+    @IBAction func customText3Changed(sender: AnyObject) {
+        persistCurrentValue()
+    }
+    
+    
+    func persistCurrentValue() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        print("onTap" + String(customTextField1.text))
+        let value1 = Int(customTextField1.text!) ?? 0
+        let value2 = Int(customTextField2.text!) ?? 0
+        let value3 = Int(customTextField3.text!) ?? 0
+        defaults.setInteger(value1, forKey: "custom_1")
+        defaults.setInteger(value2, forKey: "custom_2")
+        defaults.setInteger(value3, forKey: "custom_3")
+        print("value : " + String(value1))
+        defaults.synchronize()
+    }
+    
+
+    // Need a validation that input values are less than 100
 
     /*
     // MARK: - Navigation
