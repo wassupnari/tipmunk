@@ -16,6 +16,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("view will appear")
+        
+        readFromUserDefaults()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,8 +43,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateTip(sender: AnyObject) {
-        
-        readFromUserDefaults()
         
         let tipPercentages = [0.18, 0.2, 0.25]
         
