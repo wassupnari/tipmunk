@@ -109,7 +109,7 @@
         <!--Settings-->
         <scene sceneID="aWT-UV-36d">
             <objects>
-                <viewController id="Jze-pf-78o" sceneMemberID="viewController">
+                <viewController id="Jze-pf-78o" customClass="SettingsViewController" customModule="tipmunk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="piC-mM-fD5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,14 +142,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="pkI-sQ-LDk" appends="YES" id="4xK-53-G0W"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="BVr-dB-qlK"/>
+                    <connections>
+                        <outlet property="onTap" destination="pkI-sQ-LDk" id="kGz-UX-5WU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYV-9L-hr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="pkI-sQ-LDk"/>
+                <tapGestureRecognizer id="pkI-sQ-LDk">
+                    <connections>
+                        <action selector="onTap:" destination="Jze-pf-78o" id="BHd-98-LCl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1113" y="258"/>
         </scene>
