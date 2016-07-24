@@ -48,7 +48,7 @@
 		5B114AF81D44262900AAD487 /* tipmunkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tipmunkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B114AFC1D44262900AAD487 /* tipmunkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipmunkUITests.swift; sourceTree = "<group>"; };
 		5B114AFE1D44262900AAD487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B114B0A1D44353C00AAD487 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5B114B0A1D44353C00AAD487 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,6 @@
 		5B114AD01D44262900AAD487 = {
 			isa = PBXGroup;
 			children = (
-				5B114B0A1D44353C00AAD487 /* SettingsViewController.swift */,
 				5B114ADB1D44262900AAD487 /* tipmunk */,
 				5B114AF01D44262900AAD487 /* tipmunkTests */,
 				5B114AFB1D44262900AAD487 /* tipmunkUITests */,
@@ -100,6 +99,7 @@
 		5B114ADB1D44262900AAD487 /* tipmunk */ = {
 			isa = PBXGroup;
 			children = (
+				5B114B0A1D44353C00AAD487 /* SettingsViewController.swift */,
 				5B114ADC1D44262900AAD487 /* AppDelegate.swift */,
 				5B114ADE1D44262900AAD487 /* ViewController.swift */,
 				5B114AE01D44262900AAD487 /* Main.storyboard */,
