@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        readFromUserDefaults()
+        initView()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         totalLabel.text = String(format: "$%.2f", total)
     }
     
-    func readFromUserDefaults() {
+    func initView() {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         let value1 = defaults.integerForKey("custom_1") ?? 18
@@ -62,6 +62,9 @@ class ViewController: UIViewController {
         tipControl.setTitle(String(value1) + "%", forSegmentAtIndex: 0)
         tipControl.setTitle(String(value2) + "%", forSegmentAtIndex: 1)
         tipControl.setTitle(String(value3) + "%", forSegmentAtIndex: 2)
+        
+        tipControl.selectedSegmentIndex = defaults.integerForKey("default_position")
+        
     }
 }
 
