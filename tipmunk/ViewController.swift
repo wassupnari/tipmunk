@@ -16,6 +16,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
+    @IBOutlet weak var totalView: UIView!
+    
+    var value1: Int!
+    var value2: Int!
+    var value3: Int!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         initView()
@@ -39,9 +45,16 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func onEditingStarted(sender: AnyObject) {
+        UIView.animateWithDuration(0.4, animations: {
+            self.totalView.alpha = 1
+        })
+    }
+    
     @IBAction func calculateTip(sender: AnyObject) {
+
         
-        let tipPercentages = [0.18, 0.2, 0.25]
+        let tipPercentages = [Double(value1)/100.0, Double(value2)/100.0, Double(value3)/100.0]
         
         // ?? : returns the right value if the left value is equal to nil
         let bill = Double(billField.text!) ?? 0
@@ -55,9 +68,9 @@ class ViewController: UIViewController {
     func initView() {
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        let value1 = defaults.integerForKey("custom_1") ?? 18
-        let value2 = defaults.integerForKey("custom_2") ?? 20
-        let value3 = defaults.integerForKey("custom_3") ?? 25
+        value1 = defaults.integerForKey("custom_1") ?? 18
+        value2 = defaults.integerForKey("custom_2") ?? 20
+        value3 = defaults.integerForKey("custom_3") ?? 25
         
         tipControl.setTitle(String(value1) + "%", forSegmentAtIndex: 0)
         tipControl.setTitle(String(value2) + "%", forSegmentAtIndex: 1)
@@ -65,6 +78,8 @@ class ViewController: UIViewController {
         
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_position")
         
+        // Hide total view initially
+        self.totalView.alpha = 0
     }
 }
 
