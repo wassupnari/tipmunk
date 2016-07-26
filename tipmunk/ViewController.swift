@@ -45,7 +45,14 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func onEditingStarted(sender: AnyObject) {
+        UIView.animateWithDuration(0.4, animations: {
+            self.totalView.alpha = 1
+        })
+    }
+    
     @IBAction func calculateTip(sender: AnyObject) {
+
         
         let tipPercentages = [Double(value1)/100.0, Double(value2)/100.0, Double(value3)/100.0]
         
@@ -70,9 +77,9 @@ class ViewController: UIViewController {
         tipControl.setTitle(String(value3) + "%", forSegmentAtIndex: 2)
         
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_position")
+        
+        // Hide total view initially
+        self.totalView.alpha = 0
     }
-    
-    
-    
 }
 
