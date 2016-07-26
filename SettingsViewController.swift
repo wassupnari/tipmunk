@@ -40,13 +40,17 @@ class SettingsViewController: UIViewController {
     func initView() {
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        let value1 = defaults.integerForKey("custom_1") ?? 18
-        let value2 = defaults.integerForKey("custom_2") ?? 20
-        let value3 = defaults.integerForKey("custom_3") ?? 25
+        let value1 = defaults.integerForKey("custom_1") == 0 ? 18 : defaults.integerForKey("custom_1")
+        let value2 = defaults.integerForKey("custom_2") == 0 ? 20 : defaults.integerForKey("custom_2")
+        let value3 = defaults.integerForKey("custom_3") == 0 ? 25 : defaults.integerForKey("custom_3")
         
         defaultTipControl.setTitle(String(value1) + "%", forSegmentAtIndex: 0)
         defaultTipControl.setTitle(String(value2) + "%", forSegmentAtIndex: 1)
         defaultTipControl.setTitle(String(value3) + "%", forSegmentAtIndex: 2)
+        
+        customTextField1.text = String(value1)
+        customTextField2.text = String(value2)
+        customTextField3.text = String(value3)
         
         defaultTipControl.selectedSegmentIndex = defaults.integerForKey(CONTROL_INDEX_KEY)
     }
