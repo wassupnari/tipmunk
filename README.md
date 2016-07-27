@@ -4,7 +4,7 @@
 
 Submitted by: **Nari Shin**
 
-Time spent: **X** hours spent in total
+Time spent: **8.5** hours spent in total
 
 ## User Stories
 
@@ -35,7 +35,10 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- After I added SettingsViewController and UI components, ctrl+drag didn't work from the StoryBoard. It took some time to figure out that my xib file had different class name of newly added viewController. I changed the name of viewController to SettingsViewController, and it worked like a charm!
+- I want to let user to customize the tip percentage and that was the first additional feature that I worked on. It works as I intended, but it would be great if I can append "%" at the end of percentages, and has a validation that it doesn't exceed 100. I'll keep working on this.
+- Currently I have a simple fade in and fade out animation, but I'd like to combine it with expand+collapse animation.
+- From an Android developer's perspective, Xcode seems to have very powerful GUI tools that make building UI, adding callbacks, or navigating multiple controllers super easy compared to Android Studio. I still instinctually want to see the xml code instead of interface builder, but I'll become used to it. Very curious about building networking layer with Swift on iOS platform, and hope I get accepted for this class!
 
 ## License
 
