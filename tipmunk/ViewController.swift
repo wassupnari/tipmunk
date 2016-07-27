@@ -76,6 +76,7 @@ class ViewController: UIViewController {
     }
     
     func initView() {
+        // Set defaults
         let defaults = NSUserDefaults.standardUserDefaults()
         
         value1 = defaults.integerForKey("custom_1") == 0 ? 18 : defaults.integerForKey("custom_1")
@@ -88,12 +89,20 @@ class ViewController: UIViewController {
         
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_position")
         
-        // Hide total view initially
+        // Show or hide total view
         if(Double(billField.text!) > 0) {
             self.totalView.alpha = 1
         } else {
             self.totalView.alpha = 0
         }
+        
+        // Placeholder for billField
+//        if(Double(billField.text!) == 0) {
+//            let placeholder = NSAttributedString(string: "$", attributes: [NSForegroundColorAttributeName : UIColor.redColor()])
+//            let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 30));
+//            billField.attributedPlaceholder = placeholder;
+//            self.billField.addSubview(textField)
+//        }
     }
 }
 
