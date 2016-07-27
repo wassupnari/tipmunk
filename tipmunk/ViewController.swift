@@ -68,9 +68,9 @@ class ViewController: UIViewController {
     func initView() {
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        value1 = defaults.integerForKey("custom_1") ?? 18
-        value2 = defaults.integerForKey("custom_2") ?? 20
-        value3 = defaults.integerForKey("custom_3") ?? 25
+        value1 = defaults.integerForKey("custom_1") == 0 ? 18 : defaults.integerForKey("custom_1")
+        value2 = defaults.integerForKey("custom_2") == 0 ? 20 : defaults.integerForKey("custom_2")
+        value3 = defaults.integerForKey("custom_3") == 0 ? 25 : defaults.integerForKey("custom_3")
         
         tipControl.setTitle(String(value1) + "%", forSegmentAtIndex: 0)
         tipControl.setTitle(String(value2) + "%", forSegmentAtIndex: 1)
