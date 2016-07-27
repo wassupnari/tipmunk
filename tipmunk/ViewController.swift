@@ -10,6 +10,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let CONTROL_INDEX_KEY = "default_position"
 
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         initView()
+        calculate()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,8 +55,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateTip(sender: AnyObject) {
-
+        let position = tipControl.selectedSegmentIndex
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(position, forKey: CONTROL_INDEX_KEY)
+        defaults.synchronize()
         
+        calculate()
+    }
+    
+    func calculate() {
         let tipPercentages = [Double(value1)/100.0, Double(value2)/100.0, Double(value3)/100.0]
         
         // ?? : returns the right value if the left value is equal to nil
