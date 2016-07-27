@@ -10,6 +10,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let CONTROL_INDEX_KEY = "default_position"
 
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         initView()
+        calculate()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -52,8 +55,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateTip(sender: AnyObject) {
-
+        let position = tipControl.selectedSegmentIndex
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(position, forKey: CONTROL_INDEX_KEY)
+        defaults.synchronize()
         
+        calculate()
+    }
+    
+    func calculate() {
         let tipPercentages = [Double(value1)/100.0, Double(value2)/100.0, Double(value3)/100.0]
         
         // ?? : returns the right value if the left value is equal to nil
@@ -66,6 +76,7 @@ class ViewController: UIViewController {
     }
     
     func initView() {
+        // Set defaults
         let defaults = NSUserDefaults.standardUserDefaults()
         
         value1 = defaults.integerForKey("custom_1") == 0 ? 18 : defaults.integerForKey("custom_1")
@@ -78,8 +89,20 @@ class ViewController: UIViewController {
         
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_position")
         
-        // Hide total view initially
-        self.totalView.alpha = 0
+        // Show or hide total view
+        if(Double(billField.text!) > 0) {
+            self.totalView.alpha = 1
+        } else {
+            self.totalView.alpha = 0
+        }
+        
+        // Placeholder for billField
+//        if(Double(billField.text!) == 0) {
+//            let placeholder = NSAttributedString(string: "$", attributes: [NSForegroundColorAttributeName : UIColor.redColor()])
+//            let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 30));
+//            billField.attributedPlaceholder = placeholder;
+//            self.billField.addSubview(textField)
+//        }
     }
 }
 
