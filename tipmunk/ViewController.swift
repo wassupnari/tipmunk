@@ -89,7 +89,11 @@ class ViewController: UIViewController {
         tipControl.selectedSegmentIndex = defaults.integerForKey("default_position")
         
         // Hide total view initially
-        self.totalView.alpha = 0
+        if(Double(billField.text!) > 0) {
+            self.totalView.alpha = 1
+        } else {
+            self.totalView.alpha = 0
+        }
     }
 }
 
